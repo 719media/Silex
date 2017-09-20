@@ -231,6 +231,14 @@ You can configure the Twig environment before using it by extending the
         return $twig;
     });
 
+If your twig include paths necessitate namespaces, you can extend the
+twig.loader.filesystem::
+    $app->extend('twig.loader.filesystem', function ($loader, $app) {
+        $loader->addPath(__DIR__.'/other-views/', 'my-namespace');
+    
+        return $loader;
+    });
+
 For more information, check out the `official Twig documentation
 <http://twig.sensiolabs.org>`_.
 
